@@ -23,9 +23,6 @@ const PRODUCTS = [
   { id:6, name:"Clutch Amour",    cat:"bags",  heel:null,     color:"gold",   price:6800,  oldPrice:7900,  img:I.evening,tag:"Вечер",        mat:"Атласная ткань",   pair:5 },
   { id:7,  name:"Day Step",        cat:"shoes", heel:"low",    color:"black",  price:6500,  oldPrice:null,  img:I.shoes,    tag:"",             mat:"Кожа флотар",      pair:8 },
   { id:8,  name:"Mini Crossbody", cat:"bags",  heel:null,     color:"black",  price:5900,  oldPrice:6800,  img:I.bags,     tag:"",             mat:"Гладкая кожа",     pair:7 },
-  { id:9,  name:"Soft Step Black",cat:"shoes", heel:"low",    color:"black",  price:5800,  oldPrice:null,  img:I.lowHeels, tag:"Новинка 2026", mat:"Натуральная кожа", pair:8 },
-  { id:10, name:"Caramel Walk",   cat:"shoes", heel:"low",    color:"brown",  price:5900,  oldPrice:6800,  img:I.lowHeels, tag:"",             mat:"Кожа флотар",      pair:8 },
-  { id:11, name:"White Comfort",  cat:"shoes", heel:"low",    color:"white",  price:6200,  oldPrice:null,  img:I.lowHeels, tag:"Новинка 2026", mat:"Гладкая кожа",     pair:8 },
 ];
 
 const LOOKS = [
