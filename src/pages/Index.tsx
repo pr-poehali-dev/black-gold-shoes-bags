@@ -10,6 +10,7 @@ const I = {
   shoes:   "https://cdn.poehali.dev/projects/731183b5-5a08-40e8-8d25-c7d4e24f3b79/files/fd8f2cf9-4381-4242-b624-e63fc49031d1.jpg",
   bags:    "https://cdn.poehali.dev/projects/731183b5-5a08-40e8-8d25-c7d4e24f3b79/files/59f9baed-cbf7-42eb-8174-fedf27ad5201.jpg",
   heroOld: "https://cdn.poehali.dev/projects/731183b5-5a08-40e8-8d25-c7d4e24f3b79/files/3761f60e-fba5-4e19-85f7-43f4d536d957.jpg",
+  lowHeels:"https://cdn.poehali.dev/projects/731183b5-5a08-40e8-8d25-c7d4e24f3b79/files/7e7422d3-8372-4211-87f1-0b6903867249.jpg",
 };
 
 /* ─── DATA ─── */
@@ -20,8 +21,11 @@ const PRODUCTS = [
   { id:4, name:"Tote Luxe",       cat:"bags",  heel:null,     color:"beige",  price:9800,  oldPrice:11500, img:I.office, tag:"Офис",         mat:"Зернистая кожа",   pair:3 },
   { id:5, name:"Luna Evening",    cat:"shoes", heel:"high",   color:"gold",   price:9400,  oldPrice:null,  img:I.evening,tag:"Новинка 2026", mat:"Атлас + кожа",     pair:6 },
   { id:6, name:"Clutch Amour",    cat:"bags",  heel:null,     color:"gold",   price:6800,  oldPrice:7900,  img:I.evening,tag:"Вечер",        mat:"Атласная ткань",   pair:5 },
-  { id:7, name:"Day Step",        cat:"shoes", heel:"low",    color:"black",  price:6500,  oldPrice:null,  img:I.shoes,  tag:"",             mat:"Кожа флотар",      pair:8 },
-  { id:8, name:"Mini Crossbody",  cat:"bags",  heel:null,     color:"black",  price:5900,  oldPrice:6800,  img:I.bags,   tag:"",             mat:"Гладкая кожа",     pair:7 },
+  { id:7,  name:"Day Step",        cat:"shoes", heel:"low",    color:"black",  price:6500,  oldPrice:null,  img:I.shoes,    tag:"",             mat:"Кожа флотар",      pair:8 },
+  { id:8,  name:"Mini Crossbody", cat:"bags",  heel:null,     color:"black",  price:5900,  oldPrice:6800,  img:I.bags,     tag:"",             mat:"Гладкая кожа",     pair:7 },
+  { id:9,  name:"Soft Step Black",cat:"shoes", heel:"low",    color:"black",  price:5800,  oldPrice:null,  img:I.lowHeels, tag:"Новинка 2026", mat:"Натуральная кожа", pair:8 },
+  { id:10, name:"Caramel Walk",   cat:"shoes", heel:"low",    color:"brown",  price:5900,  oldPrice:6800,  img:I.lowHeels, tag:"",             mat:"Кожа флотар",      pair:8 },
+  { id:11, name:"White Comfort",  cat:"shoes", heel:"low",    color:"white",  price:6200,  oldPrice:null,  img:I.lowHeels, tag:"Новинка 2026", mat:"Гладкая кожа",     pair:8 },
 ];
 
 const LOOKS = [
@@ -43,7 +47,7 @@ const BLOG = [
 ];
 
 type Page   = "home"|"catalog"|"product"|"constructor"|"looks"|"blog";
-type Filter = { cat:"all"|"shoes"|"bags"; color:"all"|"black"|"beige"|"gold"; heel:"all"|"high"|"mid"|"low" };
+type Filter = { cat:"all"|"shoes"|"bags"; color:"all"|"black"|"beige"|"gold"|"brown"|"white"; heel:"all"|"high"|"mid"|"low" };
 type CartItem = { id:number; qty:number };
 
 /* ─────────────────────────────────────────────── */
@@ -113,7 +117,7 @@ export default function Index() {
   ];
 
   /* ── COLOR MAP ── */
-  const colorDot: Record<string,string> = { black:"#1a1a1a", beige:"#d4b896", gold:"#c9913a" };
+  const colorDot: Record<string,string> = { black:"#1a1a1a", beige:"#d4b896", gold:"#c9913a", brown:"#7a4a2a", white:"#f0ece4" };
 
   const G = "bg-gradient-to-r from-[#c9913a] to-[#e8c76a]";
   const GT = "bg-gradient-to-r from-[#f5d782] via-[#c9913a] to-[#f5d782] bg-clip-text text-transparent";
@@ -475,7 +479,7 @@ export default function Index() {
                   className={`text-[10px] tracking-[0.18em] uppercase px-4 py-2 border transition-all ${filter.color==="all"?"bg-gradient-to-r from-[#c9913a] to-[#e8c76a] text-[#0b0b0b] border-transparent font-semibold":"border-[#2a2a2a] text-[#7a6a50] hover:border-[#c9913a]"}`}>
                   Все
                 </button>
-                {(["black","beige","gold"] as const).map(c=>(
+                {(["black","beige","gold","brown","white"] as const).map(c=>(
                   <button key={c} onClick={()=>setFilter(f=>({...f,color:c}))}
                     className={`w-7 h-7 rounded-full border-2 transition-all ${filter.color===c?"border-[#c9913a] scale-110":"border-[#2a2a2a] hover:border-[#c9913a]"}`}
                     style={{backgroundColor:colorDot[c]}} title={c}/>
